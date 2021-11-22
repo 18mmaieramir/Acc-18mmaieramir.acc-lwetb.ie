@@ -1,4 +1,7 @@
-string = (input("enter a sentence"))
-b = ("-")
-c = ("")
-print(string.replace(c ,b))
+string = """john
+is
+a
+computer
+programmer"""
+
+print(string)

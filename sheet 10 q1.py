@@ -58,6 +58,7 @@ mean = (total // total1)
 print("mean =" , mean)
 
 
+  
 #mode
 
 
@@ -80,4 +81,3 @@ print("mean =" , mean)
             
 
             
-    

@@ -1,8 +1,6 @@
-#bubble sort
-def bs():
-
-    def bbs(L):
-        print("INPUT (initial list): ", L)
+def bubbleSort():
+    def bubbleSort(L):
+  
         exchange = True
         n = len(L)
         i = 0
@@ -22,23 +20,13 @@ def bs():
                     print("%s " %L)
         print("AFTER PASS %d: %s " %(i+1, L))
 
-        i= i+1 # increment the loop counter
-        print("OUTPUT (sorted list): ", L)
+        i= i+1
 
-
-
-    Q= [5, 4 , 3, 6, 2, 4, 1]
-
-    bbs(Q)
     
-    
-bs()
-#insertion
-def insert():
-    l = [5, 7, 3, 6, 2]
-    w = [1, 3, 4, 4, 6, 7]
+bubbleSort()    
 
-    def insertion_sort(l):
+def insertionSort():
+    def insertionSort(l):
         j = 0
     
         for i in range(len(l)):
@@ -62,39 +50,31 @@ def insert():
                 j = j - 1
         
             marker += 1
-        return l
+        
+insertionSort()       
+   
 
-    print(insertion_sort(w))
-    
-insert()
+def selectionSort():
+    def selectionSort(aList):
+            marker = 0
 
 
-# Simple (Selection) Sort
-
-def ss(aList):
-    
-    
-
-    marker = 0
-
-    while marker < len(aList):
+            while marker < len(aList):
          
-        index_of_min = marker
-        for j in range(marker+1, len(aList)):
-            if aList[index_of_min] > aList[j]:
+                index_of_min = marker
+                for j in range(marker+1, len(aList)):
+                    if aList[index_of_min] > aList[j]:
                 
-                index_of_min = j
+                            index_of_min = j
                 
-        temp = aList[marker] 
-        aList[marker] = aList[index_of_min] 
-        aList[index_of_min] = temp
-             
+                temp = aList[marker] 
+                aList[marker] = aList[index_of_min] 
+                aList[index_of_min] = temp
+                     
              
              
     
-        marker = marker+1
+                marker = marker+1
         
-        print(aList)
-        
-aList = [9, 6, 10, 4, 8, 5, 7]        
-ss(aList)
+selectionSort()
+

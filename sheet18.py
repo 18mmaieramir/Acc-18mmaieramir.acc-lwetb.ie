@@ -23,3 +23,31 @@ print(z)
 s=sum(m)
 print(s)
 
+#6
+
+
+def Palindrome(s):
+    return s == s[::-1]
+
+
+
+s = "noon"
+ans = Palindrome(s)
+
+if ans:
+    print("Yes")
+else:
+    print("No")
+
+#7
+
+b=[1,2,3,4,5]
+p=0
+
+for  i in b:
+    if i < b[:5]:
+        c = i+p
+        
+        
+print(c)
+        

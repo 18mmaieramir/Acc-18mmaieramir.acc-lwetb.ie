@@ -91,21 +91,59 @@ print(factorial(Q))
 
 #8
 def perfect_squares():
-    n=float(input("enter n"))
-    for i in n:
-        k=n*n
+    n=int(input("enter n"))
+    wa=0
+    for i in range(n<= n):
+        n = n*n
+    print(n)
+    
+    
+perfect_squares()
+
+#9
+def comb():
+    l1=[4,5,6]
+    l2=[1,2,3]
+    
+    l3= l1+l2
+    print(l3)
+comb()
+
+#10
+def com():
+    l1=[4,5,6]
+    l2=[1,2,3]
+    
+    result = [None]*(len(l1)+len(l2))
+    result[::2] = l1
+    result[1::2] = l2
+    
+    print(result)
+    
+com()
 
 
-print(perfect_squares())       
+#11
+def s1():
+    l3=[8,2,6,69]
+    l4=[4,5,0,1]
     
-        
+    list.sort(l3)
+    list.sort(l4)
+    l7=[]
+    l7=l3+l4
+    print(l7)
+    list.sort(l7)
+s1()    
+
+
+
 
     
     
     
     
     
-
 
 
 

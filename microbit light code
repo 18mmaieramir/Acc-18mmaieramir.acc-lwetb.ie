@@ -1,14 +1,13 @@
-reading = 0
-
-
-
-
 def on_forever():
 
-    global reading
+   
 
     reading = input.light_level()
 
-    serial.write_line(str(reading))
+    serial.write_number(reading)
 
-basic.forever(on_forever
+    basic.show_number(reading)
+
+
+
+basic.forever(on_forever)

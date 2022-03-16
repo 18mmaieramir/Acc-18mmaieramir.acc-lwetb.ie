@@ -19,9 +19,6 @@ def light():
     while(1):
         if(serialPort.in_waiting > 0):
             serialString= serialPort.readline()
-            print(serialString.decode("Ascii"))
+            f.write(serialString.decode("Ascii"))
             
             
-light()
-
-f.write(light)

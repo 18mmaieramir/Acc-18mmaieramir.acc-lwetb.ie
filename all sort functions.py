@@ -1,6 +1,8 @@
-def bubbleSort():
-    def bubbleSort(L):
-  
+#bubble sort
+def bs():
+
+    def bbs(L):
+        print("INPUT (initial list): ", L)
         exchange = True
         n = len(L)
         i = 0
@@ -20,13 +22,23 @@ def bubbleSort():
                     print("%s " %L)
         print("AFTER PASS %d: %s " %(i+1, L))
 
-        i= i+1
+        i= i+1 # increment the loop counter
+        print("OUTPUT (sorted list): ", L)
 
+
+
+    Q= [5, 4 , 3, 6, 2, 4, 1]
+
+    bbs(Q)
     
-bubbleSort()    
+    
+bs()
+#insertion
+def insert():
+    l = [5, 7, 3, 6, 2]
+    w = [1, 3, 4, 4, 6, 7]
 
-def insertionSort():
-    def insertionSort(l):
+    def insertion_sort(l):
         j = 0
     
         for i in range(len(l)):
@@ -50,32 +62,39 @@ def insertionSort():
                 j = j - 1
         
             marker += 1
-        
-insertionSort()       
-   
+        return l
+
+    print(insertion_sort(w))
+    
+insert()
 
 
-def selectionSort(aList):
+# Simple (Selection) Sort
+
+def ss(aList , boolean = false):
+    
+  
+
     marker = 0
 
-
     while marker < len(aList):
-
+         
         index_of_min = marker
         for j in range(marker+1, len(aList)):
             if aList[index_of_min] > aList[j]:
-                 index_of_min = j
-        
-                        
-        
+                
+                index_of_min = j
+                
         temp = aList[marker] 
         aList[marker] = aList[index_of_min] 
         aList[index_of_min] = temp
              
-     
-     
-
+             
+             
+    
         marker = marker+1
-
-
-
+        
+        print(aList)
+        
+bList = [9, 6, 10, 4, 8, 5, 7]        
+ss(bList)

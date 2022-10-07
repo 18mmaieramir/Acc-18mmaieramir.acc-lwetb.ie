@@ -34,9 +34,13 @@ for item in list2:
 print(list2)
 list2.sort()
 print(list2)
-
+filefre = open("filefrequency.txt" , "w")
 for item in list2:
-    print("freguency = ",item , "Is" , list1.count(item))
+     print("freguency = ",item , "Is" , list1.count(item))
+     filefre.write("freguency = " + str(item) + "Is" + str(list1.count(item)) + "\n")
+
+
+filefre.close()
     
 file.close()
 file = open("10Random.txt", "r")    
@@ -59,11 +63,15 @@ print("mean =" , mean)
 
 
   
-#mode
+file2 = open("filerange.txt" , "w")
+file2.write(str(highest - lowest))
+file2.close()
 
 
 
-
+fileme = open("filemean.txt" , "w")
+fileme.write(str(mean))
+fileme.close()
 
     
         

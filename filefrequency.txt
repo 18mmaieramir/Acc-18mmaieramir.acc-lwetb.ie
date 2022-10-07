@@ -1,0 +1,9 @@
+freguency = 24Is1
+freguency = 38Is1
+freguency = 41Is2
+freguency = 73Is1
+freguency = 79Is1
+freguency = 81Is1
+freguency = 82Is1
+freguency = 87Is1
+freguency = 97Is1

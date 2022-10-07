@@ -1,10 +1,10 @@
-Q=[1,2,3,4,5,6,7]
+Q=1234567
 
 def factorial(L):
-    if (len(L)==1):
-        return L[0]
+    if (L==7):
+        return L
     else:
-        return L[0] + factorial(L[1:])
+        return L + factorial(L)
     
     
-print(factorial(Q))
+print(factorial(7))

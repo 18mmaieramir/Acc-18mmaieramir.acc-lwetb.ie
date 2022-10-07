@@ -53,11 +53,28 @@ print(avg)
 
 #5
 
-v1= str(input("Enter first value"))
-v2= str(input("Enter first value"))
-v3= str(input("Enter first value"))
-v4= str(input("Enter first value"))
-v5= str(input("Enter first value"))
+v1= int(input("Enter first value"))
+v2= int(input("Enter second value"))
+v3= int(input("Enter third value"))
+v4= int(input("Enter fourth value"))
+v5= int(input("Enter fifth value"))
 
+l1 = []
+l2 = []
 
+l1.append(v1)
+l1.append(v2)
+l1.append(v3)
+l1.append(v4)
+l1.append(v5)
+
+print(l1)
+
+for i in l1:
+    i=i +1
+    l2.append(i)
+    
+    
+    
+print(l2)
 

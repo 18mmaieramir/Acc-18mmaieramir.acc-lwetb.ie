@@ -17,3 +17,7 @@ extracted_elements = [list2[index] for index in indece]
 
 
 print("median is" , extracted_elements)
+
+filemed = open("filemedian.txt" , "w")
+filemed.write(str(extracted_elements))
+filemed.close()

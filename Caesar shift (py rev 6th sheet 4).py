@@ -1,19 +1,27 @@
 f1 = open("cs.txt", "r")
 
-word = f1.readline()
+word = f1.read()
 
 
 letters = "abcdefghijklmnopqrstuvwxyz"
 
 
 
-v = int(input("enter amount "))
+v = -1
 res = ""
 
 for let in word:
     index = letters.index(let)
-    res1 = letters[index + v]
+    res1 = letters[index - v]
     res = res1 + res
-    
-print(res)
+print("Success")
+
+f2= open("cs2.txt", "w")
+f2.write(res)
+f2.close()
+
+
+
+
+f1.close()
 

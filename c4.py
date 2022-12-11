@@ -1,3 +1,4 @@
+from random import randrange
 r1 = [[0],[0],[0],[0],[0],[0],[0]]
 r2 = [[0],[0],[0],[0],[0],[0],[0]]
 r3 = [[0],[0],[0],[0],[0],[0],[0]]
@@ -21,13 +22,86 @@ board()
 t=0
 w=0
 X="X"
+C="S"
 go = False
+sc = False
 while go == False:
    
     y = int(input("enter Y position: "))
     x = int(input("enter X position: "))
+
+    pl = []
+    cl = []
+    scl= []
+    
+    while pl == cl and sc==False:           #ensure computer doesnt choose same position as player
+        cx = randrange(1,7)
+        cy = randrange(1,6)        
+        pl.append(y)
+        pl.append(x)
+        cl.append(cy)
+        cl.append(cx)
+        cx1 = cx^2
+        cy2 = cy^2
+        cyx = cx1 + cy2
+        scl.append(cyx)
+        if len(scl) != len(set(scl)):
+            sc == True
+        else:
+            sc==False
+
+
+
+#         if t >= 2:
+#             sc = False
+#         else:
+#             sc = True
+                
+      
+    
+    print("computer chose: ","(",cy,",",cx,")")
+    
+    
     x = x-1
-  
+    if cy == 6:
+        for i in r6:
+            del r6[cx]
+            r6.insert(cx,C)
+      
+
+        
+    elif cy== 5:
+        for i in r5:
+            del r5[cx]
+            r5.insert(cx,C)
+   
+
+        
+    elif cy== 4:
+        for i in r4:
+            del r4[cx]
+            r4.insert(cx,C)
+
+        
+    elif cy==3:
+        for i in r3:
+            del r3[cx]
+            r3.insert(cx,C)
+    
+        
+    elif cy==2:
+        for i in r2:
+            del r2[cx]
+            r2.insert(cx,C)
+
+    
+    elif cy==1:
+        for i in r1:
+            del r1[cx]
+            r1.insert(cx,C)
+   
+#################################################  
+
     if y == 6:
         for i in r6:
             del r6[x]
@@ -72,19 +146,19 @@ while go == False:
         print("Invalid position, please enter position between 1-6!!!!")
         break
 
-    for i in r1:       #horizontal win check for row 1
-        if i == "X":
-            w+= 1
-            e=r1.index(i)
-            if r1[e+1] == "X":
-                w+=1
-                if r1[e+2] == "X":
-                    w+=1
-                    if r1[e+3] == "X":
-                        w+=2
-                        go = True
+#     for i in r1:       #horizontal win check for row 1
+#         if i == "X":
+#             w+= 1
+#             e=r1.index(i)
+#             if r1[e+1] == "X":
+#                 w+=1
+#                 if r1[e+2] == "X":
+#                     w+=1
+#                     if r1[e+3] == "X":
+#                         w+=2
+#                         go = True
         
-            
+      
 if w>4:
     print("Game Over")
     

@@ -41,8 +41,8 @@ while go == False:
         pl.append(x)
         cl.append(cy)
         cl.append(cx)
-        cx1 = cx^2
-        cy2 = cy^2
+        cx1 = cx**2
+        cy2 = cy**2
         cyx = cx1 + cy2
         scl.append(cyx)
         if len(scl) != len(set(scl)):

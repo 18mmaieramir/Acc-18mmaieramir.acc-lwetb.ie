@@ -1,4 +1,6 @@
 from random import randrange
+import itertools
+
 r1 = [[0],[0],[0],[0],[0],[0],[0]]
 r2 = [[0],[0],[0],[0],[0],[0],[0]]
 r3 = [[0],[0],[0],[0],[0],[0],[0]]
@@ -24,7 +26,7 @@ w=0
 X="X"
 C="S"
 go = False
-sc = False
+sc = True
 while go == False:
    
     y = int(input("enter Y position: "))
@@ -32,24 +34,51 @@ while go == False:
 
     pl = []
     cl = []
-    scl= []
+    scl = []
     
-    while pl == cl and sc==False:           #ensure computer doesnt choose same position as player
-        cx = randrange(1,7)
-        cy = randrange(1,6)        
-        pl.append(y)
-        pl.append(x)
-        cl.append(cy)
-        cl.append(cx)
-        cx1 = cx**2
-        cy2 = cy**2
-        cyx = cx1 + cy2
-        scl.append(cyx)
-        if len(scl) != len(set(scl)):
-            sc == True
-        else:
-            sc==False
-
+    
+    while sc == True:
+        while pl == cl:           #ensure computer doesnt choose same position as player
+            cx = randrange(1,7)
+            cy = randrange(1,6)        
+            pl.append(y)
+            pl.append(x)
+            cl.append(cy)
+            cl.append(cx)
+        
+            
+        cx1= cx*cx
+        cy1= cy*cy
+        cxy = cx1 + cy1
+        
+        scl.append(cxy)
+        for i in scl:
+            if i == cxy:
+                t+=2
+            else:
+                sc == False
+            if t<=2:
+                sc == True
+            else:
+                sc == False
+                
+ 
+        
+        
+            
+        
+    
+#         x = range(1,7)
+#         aList =[]
+#         for pair in itertools.combinations(x,2):
+#             for i in range(1,7):
+#                 aList.append(pair)
+#         print (aList)     
+#          
+        
+        
+        
+        
 
 
 #         if t >= 2:
@@ -164,4 +193,3 @@ if w>4:
     
 else:
     print("")
-        

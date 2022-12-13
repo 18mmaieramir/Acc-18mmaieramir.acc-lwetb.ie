@@ -1,5 +1,6 @@
 from random import randrange
-import itertools
+import random
+
 
 r1 = [[0],[0],[0],[0],[0],[0],[0]]
 r2 = [[0],[0],[0],[0],[0],[0],[0]]
@@ -7,7 +8,7 @@ r3 = [[0],[0],[0],[0],[0],[0],[0]]
 r4 = [[0],[0],[0],[0],[0],[0],[0]]
 r5 = [[0],[0],[0],[0],[0],[0],[0]]
 r6 = [[0],[0],[0],[0],[0],[0],[0]]
-
+ky ="  1    2    3    4    5    6    7   " 
 def board():
 
     print(r1)
@@ -16,87 +17,71 @@ def board():
     print(r4)
     print(r5)
     print(r6)
+    print(ky)
     print("")
 
 board()
 
-
-t=0
+coords = [(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(6,1),(6,2),(6,3),(6,4),(6,5),(6,6)]
+l = list(range(1, 36))  
+random.shuffle(l)
+# print(l)
+f=0
 w=0
+p=0
 X="X"
 C="S"
 go = False
-sc = True
+sc = False
 while go == False:
-   
-    y = int(input("enter Y position: "))
+    t=0
     x = int(input("enter X position: "))
+    y = int(input("enter Y position: "))
 
     pl = []
     cl = []
     scl = []
     
     
-    while sc == True:
-        while pl == cl:           #ensure computer doesnt choose same position as player
-            cx = randrange(1,7)
-            cy = randrange(1,6)        
-            pl.append(y)
-            pl.append(x)
-            cl.append(cy)
-            cl.append(cx)
+    
+    while pl == cl :           
+        t=0
         
-            
-        cx1= cx*cx
-        cy1= cy*cy
-        cxy = cx1 + cy1
+        for i in l:
+            t = l[f+p]
+#         print(t)
+
+        rc1=coords[t]
         
-        scl.append(cxy)
-        for i in scl:
-            if i == cxy:
-                t+=2
-            else:
-                sc == False
-            if t<=2:
-                sc == True
-            else:
-                sc == False
-                
+        rc2=str(rc1)
+#         print(rc2)
+        cx = int(rc2[1])
+        cy=int(rc2[4])
+#         print(cx,cy)
  
-        
-        
-            
-        
-    
-#         x = range(1,7)
-#         aList =[]
-#         for pair in itertools.combinations(x,2):
-#             for i in range(1,7):
-#                 aList.append(pair)
-#         print (aList)     
-#          
-        
-        
-        
-        
-
-
-#         if t >= 2:
-#             sc = False
-#         else:
-#             sc = True
+   
                 
-      
-    
-    print("computer chose: ","(",cy,",",cx,")")
+        pl.append(y)          #ensure computer doesnt choose same position as player
+        pl.append(x)
+        cl.append(cy)
+        cl.append(cx)
+
+        p+=1
+
+
+  
+
+    print("computer chose: ","(",cx,",",cy,")")
     
     
     x = x-1
     if cy == 6:
         for i in r6:
+            
             del r6[cx]
             r6.insert(cx,C)
-      
+            sc == False
+  
 
         
     elif cy== 5:
@@ -128,7 +113,7 @@ while go == False:
         for i in r1:
             del r1[cx]
             r1.insert(cx,C)
-   
+
 #################################################  
 
     if y == 6:

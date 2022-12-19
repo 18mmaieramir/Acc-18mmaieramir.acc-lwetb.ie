@@ -1,6 +1,4 @@
 from random import randrange
-import random
-
 
 r1 = [[0],[0],[0],[0],[0],[0],[0]]
 r2 = [[0],[0],[0],[0],[0],[0],[0]]
@@ -8,7 +6,7 @@ r3 = [[0],[0],[0],[0],[0],[0],[0]]
 r4 = [[0],[0],[0],[0],[0],[0],[0]]
 r5 = [[0],[0],[0],[0],[0],[0],[0]]
 r6 = [[0],[0],[0],[0],[0],[0],[0]]
-ky ="  1    2    3    4    5    6    7   " 
+key ="  0    1    2    3    4    5    6   " 
 def board():
 
     print(r1)
@@ -17,164 +15,825 @@ def board():
     print(r4)
     print(r5)
     print(r6)
-    print(ky)
+    print(key)
     print("")
 
 board()
-
-coords = [(1,1),(1,2),(1,3),(1,4),(1,5),(1,6),(2,1),(2,2),(2,3),(2,4),(2,5),(2,6),(3,1),(3,2),(3,3),(3,4),(3,5),(3,6),(4,1),(4,2),(4,3),(4,4),(4,5),(4,6),(5,1),(5,2),(5,3),(5,4),(5,5),(5,6),(6,1),(6,2),(6,3),(6,4),(6,5),(6,6)]
-l = list(range(1, 36))  
-random.shuffle(l)
-# print(l)
-f=0
-w=0
-p=0
-X="X"
-C="S"
 go = False
-sc = False
+
+pc = str(input("Choose your counter, X or Y: "))
+if pc == "x":
+    X="X"
+elif pc == "y":
+    X = "Y"
+elif pc == "X":
+    X = "X"
+elif pc == "Y":
+    X = "Y"
+else:
+    print("invalid input")
+    go = True
+
+S="S"
+
 while go == False:
     t=0
     x = int(input("enter X position: "))
-    y = int(input("enter Y position: "))
-
-    pl = []
-    cl = []
-    scl = []
-    
-    
-    
-    while pl == cl :           
-        t=0
-        
-        for i in l:
-            t = l[f+p]
-#         print(t)
-
-        rc1=coords[t]
-        
-        rc2=str(rc1)
-#         print(rc2)
-        cx = int(rc2[1])
-        cy=int(rc2[4])
-#         print(cx,cy)
- 
+    cx = randrange(0,7)
+    print(cx)
    
-                
-        pl.append(y)          #ensure computer doesnt choose same position as player
-        pl.append(x)
-        cl.append(cy)
-        cl.append(cx)
+    if x == 0:
+        def pos(j=0):
+            if r6[j] == [0]:
+                del r6[x]
+                r6.insert(x,X)
+                board()
+            elif r5[j] == [0]:
+                del r5[x]
+                r5.insert(x,X)
+                board()
+            elif r4[j] == [0]:
+                del r4[x]
+                r4.insert(x,X)
+                board()
+            elif r3[j] == [0]:
+                del r3[x]
+                r3.insert(x,X)
+                board()
+            elif r2[j] == [0]:
+                del r2[x]
+                r2.insert(x,X)
+                board()
+            elif r1[j] == [0]:
+                del r1[x]
+                r1.insert(x,X)
+                board()
+            else:
+                print("invalid position or column is full, Game over")
+                go == True
+        pos()
 
-        p+=1
-
-
-  
-
-    print("computer chose: ","(",cx,",",cy,")")
-    
-    
-    x = x-1
-    if cy == 6:
-        for i in r6:
+    elif x==1:
+        def pos(j=1):
+            if r6[j] == [0]:
+                del r6[x]
+                r6.insert(x,X)
+                board()
+            elif r5[j] == [0]:
+                del r5[x]
+                r5.insert(x,X)
+                board()
+            elif r4[j] == [0]:
+                del r4[x]
+                r4.insert(x,X)
+                board()
+            elif r3[j] == [0]:
+                del r3[x]
+                r3.insert(x,X)
+                board()
+            elif r2[j] == [0]:
+                del r2[x]
+                r2.insert(x,X)
+                board()
+            elif r1[j] == [0]:
+                del r1[x]
+                r1.insert(x,X)
+                board()
+            else:
+                print("invalid")
+        pos()
             
-            del r6[cx]
-            r6.insert(cx,C)
-            sc == False
-  
-
-        
-    elif cy== 5:
-        for i in r5:
-            del r5[cx]
-            r5.insert(cx,C)
-   
-
-        
-    elif cy== 4:
-        for i in r4:
-            del r4[cx]
-            r4.insert(cx,C)
-
-        
-    elif cy==3:
-        for i in r3:
-            del r3[cx]
-            r3.insert(cx,C)
-    
-        
-    elif cy==2:
-        for i in r2:
-            del r2[cx]
-            r2.insert(cx,C)
-
-    
-    elif cy==1:
-        for i in r1:
-            del r1[cx]
-            r1.insert(cx,C)
-
-#################################################  
-
-    if y == 6:
-        for i in r6:
-            del r6[x]
-            r6.insert(x,X)
-        board()
-
-        
-    elif y== 5:
-        for i in r5:
-            del r5[x]
-            r5.insert(x,X)
-        board()
-
-        
-    elif y== 4:
-        for i in r4:
-            del r4[x]
-            r4.insert(x,X)
-        board()
-        
-    elif y==3:
-        for i in r3:
-            del r3[x]
-            r3.insert(x,X)
-        board()
-        
-    elif y==2:
-        for i in r2:
-            del r2[x]
-            r2.insert(x,X)
-        board()
-    
-    elif y==1:
-        for i in r1:
-            del r1[x]
-            r1.insert(x,X)
-        board()
-        
-        
-        
+    elif x==2:
+        def pos(j=2):
+            if r6[j] == [0]:
+                del r6[x]
+                r6.insert(x,X)
+                board()
+            elif r5[j] == [0]:
+                del r5[x]
+                r5.insert(x,X)
+                board()
+            elif r4[j] == [0]:
+                del r4[x]
+                r4.insert(x,X)
+                board()
+            elif r3[j] == [0]:
+                del r3[x]
+                r3.insert(x,X)
+                board()
+            elif r2[j] == [0]:
+                del r2[x]
+                r2.insert(x,X)
+                board()
+            elif r1[j] == [0]:
+                del r1[x]
+                r1.insert(x,X)
+                board()
+            else:
+                print("invalid")
+        pos()
+    elif x==3:
+        def pos(j=3):
+            if r6[j] == [0]:
+                del r6[x]
+                r6.insert(x,X)
+                board()
+            elif r5[j] == [0]:
+                del r5[x]
+                r5.insert(x,X)
+                board()
+            elif r4[j] == [0]:
+                del r4[x]
+                r4.insert(x,X)
+                board()
+            elif r3[j] == [0]:
+                del r3[x]
+                r3.insert(x,X)
+                board()
+            elif r2[j] == [0]:
+                del r2[x]
+                r2.insert(x,X)
+                board()
+            elif r1[j] == [0]:
+                del r1[x]
+                r1.insert(x,X)
+                board()
+            else:
+                print("invalid")
+        pos()
+    elif x == 4:
+        def pos(j=4):
+            if r6[j] == [0]:
+                del r6[x]
+                r6.insert(x,X)
+                board()
+            elif r5[j] == [0]:
+                del r5[x]
+                r5.insert(x,X)
+                board()
+            elif r4[j] == [0]:
+                del r4[x]
+                r4.insert(x,X)
+                board()
+            elif r3[j] == [0]:
+                del r3[x]
+                r3.insert(x,X)
+                board()
+            elif r2[j] == [0]:
+                del r2[x]
+                r2.insert(x,X)
+                board()
+            elif r1[j] == [0]:
+                del r1[x]
+                r1.insert(x,X)
+                board()
+            else:
+                print("invalid")
+        pos()
+    elif x == 5:
+            def pos(j=5):
+                if r6[j] == [0]:
+                    del r6[x]
+                    r6.insert(x,X)
+                    board()
+                elif r5[j] == [0]:
+                    del r5[x]
+                    r5.insert(x,X)
+                    board()
+                elif r4[j] == [0]:
+                    del r4[x]
+                    r4.insert(x,X)
+                    board()
+                elif r3[j] == [0]:
+                    del r3[x]
+                    r3.insert(x,X)
+                    board()
+                elif r2[j] == [0]:
+                    del r2[x]
+                    r2.insert(x,X)
+                    board()
+                elif r1[j] == [0]:
+                    del r1[x]
+                    r1.insert(x,X)
+                    board()
+                else:
+                    print("invalid")
+            pos()
+    elif x ==6:
+            def pos(j=6):
+                if r6[j] == [0]:
+                    del r6[x]
+                    r6.insert(x,X)
+                    board()
+                elif r5[j] == [0]:
+                    del r5[x]
+                    r5.insert(x,X)
+                    board()
+                elif r4[j] == [0]:
+                    del r4[x]
+                    r4.insert(x,X)
+                    board()
+                elif r3[j] == [0]:
+                    del r3[x]
+                    r3.insert(x,X)
+                    board()
+                elif r2[j] == [0]:
+                    del r2[x]
+                    r2.insert(x,X)
+                    board()
+                elif r1[j] == [0]:
+                    del r1[x]
+                    r1.insert(x,X)
+                    board()
+                else:
+                    print("column full")
+            pos()
     else:
-        print("Invalid position, please enter position between 1-6!!!!")
-        break
+        print("ivalid position, enter position between 1-6")
+#######################################################################
+    if cx == 0:
+        def pos(j=0):
+            if r6[j] == [0]:
+                del r6[cx]
+                r6.insert(cx,S)
+                board()
+            elif r5[j] == [0]:
+                del r5[cx]
+                r5.insert(cx,S)
+                board()
+            elif r4[j] == [0]:
+                del r4[cx]
+                r4.insert(cx,S)
+                board()
+            elif r3[j] == [0]:
+                del r3[cx]
+                r3.insert(cx,S)
+                board()
+            elif r2[j] == [0]:
+                del r2[cx]
+                r2.insert(cx,S)
+                board()
+            elif r1[j] == [0]:
+                del r1[cx]
+                r1.insert(cx,S)
+                board()
+            else:
+                
+                go = False
+        pos()
 
-#     for i in r1:       #horizontal win check for row 1
-#         if i == "X":
-#             w+= 1
-#             e=r1.index(i)
-#             if r1[e+1] == "X":
-#                 w+=1
-#                 if r1[e+2] == "X":
-#                     w+=1
-#                     if r1[e+3] == "X":
-#                         w+=2
-#                         go = True
+    elif cx==1:
+        def pos(j=1):
+            if r6[j] == [0]:
+                del r6[cx]
+                r6.insert(cx,S)
+                board()
+            elif r5[j] == [0]:
+                del r5[cx]
+                r5.insert(cx,S)
+                board()
+            elif r4[j] == [0]:
+                del r4[cx]
+                r4.insert(cx,S)
+                board()
+            elif r3[j] == [0]:
+                del r3[cx]
+                r3.insert(cx,S)
+                board()
+            elif r2[j] == [0]:
+                del r2[cx]
+                r2.insert(cx,S)
+                board()
+            elif r1[j] == [0]:
+                del r1[cx]
+                r1.insert(cx,S)
+                board()
+            else:
+                go = False
+        pos()
+            
+    elif cx==2:
+        def pos(j=2):
+            if r6[j] == [0]:
+                del r6[cx]
+                r6.insert(cx,S)
+                board()
+            elif r5[j] == [0]:
+                del r5[cx]
+                r5.insert(cx,S)
+                board()
+            elif r4[j] == [0]:
+                del r4[cx]
+                r4.insert(cx,S)
+                board()
+            elif r3[j] == [0]:
+                del r3[cx]
+                r3.insert(cx,S)
+                board()
+            elif r2[j] == [0]:
+                del r2[cx]
+                r2.insert(cx,S)
+                board()
+            elif r1[j] == [0]:
+                del r1[cx]
+                r1.insert(cx,S)
+                board()
+            else:
+                go = False
+        pos()
+    elif cx==3:
+        def pos(j=3):
+            if r6[j] == [0]:
+                del r6[cx]
+                r6.insert(cx,S)
+                board()
+            elif r5[j] == [0]:
+                del r5[cx]
+                r5.insert(cx,S)
+                board()
+            elif r4[j] == [0]:
+                del r4[cx]
+                r4.insert(cx,S)
+                board()
+            elif r3[j] == [0]:
+                del r3[cx]
+                r3.insert(cx,S)
+                board()
+            elif r2[j] == [0]:
+                del r2[cx]
+                r2.insert(cx,S)
+                board()
+            elif r1[j] == [0]:
+                del r1[cx]
+                r1.insert(cx,S)
+                board()
+            else:
+                go = False
+        pos()
+    elif cx == 4:
+        def pos(j=4):
+            if r6[j] == [0]:
+                del r6[cx]
+                r6.insert(cx,S)
+                board()
+            elif r5[j] == [0]:
+                del r5[cx]
+                r5.insert(cx,S)
+                board()
+            elif r4[j] == [0]:
+                del r4[cx]
+                r4.insert(cx,S)
+                board()
+            elif r3[j] == [0]:
+                del r3[cx]
+                r3.insert(cx,S)
+                board()
+            elif r2[j] == [0]:
+                del r2[cx]
+                r2.insert(cx,S)
+                board()
+            elif r1[j] == [0]:
+                del r1[cx]
+                r1.insert(cx,S)
+                board()
+            else:
+                go = False
+        pos()
+    elif cx == 5:
+            def pos(j=5):
+                if r6[j] == [0]:
+                    del r6[cx]
+                    r6.insert(cx,S)
+                    board()
+                elif r5[j] == [0]:
+                    del r5[cx]
+                    r5.insert(cx,S)
+                    board()
+                elif r4[j] == [0]:
+                    del r4[cx]
+                    r4.insert(cx,S)
+                    board()
+                elif r3[j] == [0]:
+                    del r3[cx]
+                    r3.insert(cx,S)
+                    board()
+                elif r2[j] == [0]:
+                    del r2[cx]
+                    r2.insert(cx,S)
+                    board()
+                elif r1[j] == [0]:
+                    del r1[cx]
+                    r1.insert(cx,S)
+                    board()
+                else:
+                    go = False
+            pos()
+    elif cx ==6:
+            def pos(j=6):
+                if r6[j] == [0]:
+                    del r6[cx]
+                    r6.insert(cx,S)
+                    board()
+                elif r5[j] == [0]:
+                    del r5[cx]
+                    r5.insert(cx,S)
+                    board()
+                elif r4[j] == [0]:
+                    del r4[cx]
+                    r4.insert(cx,S)
+                    board()
+                elif r3[j] == [0]:
+                    del r3[cx]
+                    r3.insert(cx,S)
+                    board()
+                elif r2[j] == [0]:
+                    del r2[cx]
+                    r2.insert(cx,S)
+                    board()
+                elif r1[j] == [0]:
+                    del r1[cx]
+                    r1.insert(cx,S)
+                    board()
+                else:
+                    go = False
+            pos()
+
+#vertical win check (r6-r3)
+    if r6[0] == X and r5[0] == X and r4[0] == X and r3[0] == X:
+        print("Player wins")
+        go = True
         
-      
-if w>4:
-    print("Game Over")
+        
+    elif r6[1] == X and r5[1] == X and r4[1] == X and r3[1] == X:
+        print("Player wins")
+        go = True
+
+    elif r6[2] == X and r5[2] == X and r4[2] == X and r3[2] == X:
+        print("Player wins")
+        go = True
+
+    elif r6[3] == X and r5[3] == X and r4[3] == X and r3[3] == X:
+        print("Player wins")
+        go = True
+
+    elif r6[4] == X and r5[4] == X and r4[4] == X and r3[4] == X:
+        print("Player wins")
+        go = True
     
-else:
-    print("")
+    elif r6[5] == X and r5[5] == X and r4[5] == X and r3[5] == X:
+        print("Player wins")
+        go = True     
+    
+    elif r6[6] == X and r5[6] == X and r4[6] == X and r3[6] == X:
+        print("Player wins")
+        go = True
+
+#######################################################  (r4-r1)  
+    if r4[0] == X and r3[0] == X and r2[0] == X and r1[0] == X:
+        print("Player wins")
+        go = True
+        
+    elif r4[1] == X and r3[1] == X and r2[1] == X and r1[1] == X:
+        print("Player wins")
+        go = True
+
+    elif r4[2] == X and r3[2] == X and r2[2] == X and r1[2] == X:
+        print("Player wins")
+        go = True
+
+    elif r4[3] == X and r3[3] == X and r2[3] == X and r1[3] == X:
+        print("Player wins")
+        go = True
+
+    elif r4[4] == X and r3[4] == X and r2[4] == X and r1[4] == X:
+        print("Player wins")
+        go = True
+    
+    elif r4[5] == X and r3[5] == X and r2[5] == X and r1[5] == X:
+        print("Player wins")
+        go = True     
+    
+    elif r4[6] == X and r3[6] == X and r2[6] == X and r1[6] == X:
+        print("Player wins")
+        go = True
+   
+############################################################### (AI vert win check)
+    if r5[0] == X and r4[0] == X and r3[0] == X and r2[0] == X:
+        print("Player wins")
+        go = True
+        
+    elif r5[1] == X and r4[1] == X and r3[1] == X and r2[1] == X:
+        print("Player wins")
+        go = True
+
+    elif r5[2] == X and r4[2] == X and r3[2] == X and r2[2] == X:
+        print("Player wins")
+        go = True
+
+    elif r5[3] == X and r4[3] == X and r3[3] == X and r2[3] == X:
+        print("Player wins")
+        go = True
+
+    elif r5[4] == X and r4[4] == X and r3[4] == X and r2[4] == X:
+        print("Player wins")
+        go = True
+    
+    elif r5[5] == X and r4[5] == X and r3[5] == X and r2[5] == X:
+        print("Player wins")
+        go = True     
+    
+    elif r5[6] == X and r4[6] == X and r3[6] == X and r2[6] == X:
+        print("Player wins")
+        go = True
+
+###############################################################
+    if r6[0] == S and r5[0] == S and r4[0] == S and r3[0] == S:
+        print("Computer Wins")
+        go = True
+        
+    elif r6[1] == S and r5[1] == S and r4[1] == S and r3[1] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r6[2] == S and r5[2] == S and r4[2] == S and r3[2] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r6[3] == S and r5[3] == S and r4[3] == S and r3[3] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r6[4] == S and r5[4] == S and r4[4] == S and r3[4] == S:
+        print("Computer Wins")
+        go = True
+    
+    elif r6[5] == S and r5[5] == S and r4[5] == S and r3[5] == S:
+        print("Computer Wins")
+        go = True     
+    
+    elif r6[6] == S and r5[6] == S and r4[6] == S and r3[6] == S:
+        print("Computer Wins")
+        go = True
+
+#######################################################################    
+    if r4[0] == S and r3[0] == S and r2[0] == S and r1[0] == S:
+        print("Computer Wins")
+        go = True
+        
+        
+    elif r4[1] == S and r3[1] == S and r2[1] == S and r1[1] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r4[2] == S and r3[2] == S and r2[2] == S and r1[2] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r4[3] == S and r3[3] == S and r2[3] == S and r1[3] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r4[4] == S and r3[4] == S and r2[4] == S and r1[4] == S:
+        print("Computer Wins")
+        go = True
+    
+    elif r4[5] == S and r3[5] == S and r2[5] == S and r1[5] == S:
+        print("Computer Wins")
+        go = True     
+    
+    elif r4[6] == S and r3[6] == S and r2[6] == S and r1[6] == S:
+        print("Computer Wins")
+        go = True
+########################################################################
+    if r5[0] == S and r4[0] == S and r3[0] == S and r2[0] == S:
+        print("Computer Wins")
+        go = True
+        
+    elif r5[1] == S and r4[1] == S and r3[1] == S and r2[1] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r5[2] == S and r4[2] == S and r3[2] == S and r2[2] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r5[3] == S and r4[3] == S and r3[3] == S and r2[3] == S:
+        print("Computer Wins")
+        go = True
+
+    elif r5[4] == S and r4[4] == S and r3[4] == S and r2[4] == S:
+        print("Computer Wins")
+        go = True
+    
+    elif r5[5] == S and r4[5] == S and r3[5] == S and r2[5] == S:
+        print("Computer Wins")
+        go = True     
+    
+    elif r5[6] == S and r4[6] == S and r3[6] == S and r2[6] == S:
+        print("Computer Wins")
+        go = True
+######################################################################## (Horizontal checks)
+   
+    for i in r6:
+        if i ==X:
+            e = r6.index(i)
+            if e >= 4:
+                if r6[e] == X and r6[e-1]==X and r6[e-2]==X and r6[e-3]==X:
+                    go = True
+            else:
+                if r6[e] == X and r6[e+1]==X and r6[e+2]==X and r6[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+
+    for i in r5:
+        if i ==X:
+            e = r5.index(i)
+            if e >= 4:
+                if r5[e] == X and r5[e-1]==X and r5[e-2]==X and r5[e-3]==X:
+                    go = True
+        else:
+            if r5[e] == X and r5[e+1]==X and r5[e+2]==X and r5[e+3]==X:
+                go = True
+                print("Game over, player wins")
+                break                
+    for i in r4:
+        if i ==X:
+            e = r4.index(i)
+            if e >= 4:
+                if r4[e] == X and r4[e-1]==X and r4[e-2]==X and r4[e-3]==X:
+                    go = True
+        else:
+            if r4[e] == X and r4[e+1]==X and r4[e+2]==X and r4[e+3]==X:
+                go = True
+                print("Game over, player wins")
+                break
+
+    for i in r3:
+        if i ==X:
+            e = r3.index(i)
+            if e >= 4:
+                if r3[e] == X and r3[e-1]==X and r3[e-2]==X and r3[e-3]==X:
+                    go = True
+        else:
+            if r3[e] == X and r3[e+1]==X and r3[e+2]==X and r3[e+3]==X:
+                go = True
+                print("Game over, player wins")
+                break        
+
+    for i in r2:
+        if i ==X:
+            e = r2.index(i)
+            if e >= 4:
+                if r2[e] == X and r2[e-1]==X and r2[e-2]==X and r2[e-3]==X:
+                    go = True
+            else:
+                if r2[e] == X and r2[e+1]==X and r2[e+2]==X and r2[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+    for i in r1:
+        if i ==X:
+            e = r1.index(i)
+            if e >= 4:
+                if r1[e] == X and r1[e-1]==X and r1[e-2]==X and r1[e-3]==X:
+                    go = True
+            else:
+                if r1[e] == X and r1[e+1]==X and r1[e+2]==X and r1[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+##################################################################################################
+    for i in r6:
+        if i =="S":
+            e = r6.index(i)
+            if e >= 4:
+                if r6[e] == "S" and r6[e-1]=="S" and r6[e-2]=="S" and r6[e-3]=="S":
+                    go = True
+            else:
+                if r6[e] == "S" and r6[e+1]=="S" and r6[e+2]=="S" and r6[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break
+
+    for i in r5:
+        if i =="S":
+            e = r5.index(i)
+            if e >= 4:
+                if r5[e] == "S" and r5[e-1]=="S" and r5[e-2]=="S" and r5[e-3]=="S":
+                    go = True
+            else:
+                if r5[e] == "S" and r5[e+1]=="S" and r5[e+2]=="S" and r5[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break                
+    for i in r4:
+        if i =="S":
+            e = r4.index(i)
+            if e >= 4:
+                if r4[e] == "S" and r4[e-1]=="S" and r4[e-2]=="S" and r4[e-3]=="S":
+                    go = True
+            else:
+                if r4[e] == "S" and r4[e+1]=="S" and r4[e+2]=="S" and r4[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break
+
+    for i in r3:
+        if i =="S":
+            e = r3.index(i)
+            if e >= 4:
+                if r3[e] == "S" and r3[e-1]=="S" and r3[e-2]=="S" and r3[e-3]=="S":
+                    go = True
+            else:
+                if r3[e] == "S" and r3[e+1]=="S" and r3[e+2]=="S" and r3[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break        
+
+    for i in r2:
+        if i =="S":
+            e = r2.index(i)
+            if e >= 4:
+                if r2[e] == "S" and r2[e-1]=="S" and r2[e-2]=="S" and r2[e-3]=="S":
+                    go = True
+            else:
+                if r2[e] == "S" and r2[e+1]=="S" and r2[e+2]=="S" and r2[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break
+    for i in r1:
+        if i =="S":
+            e = r1.index(i)
+            if e >= 4:
+                if r1[e] == "S" and r1[e-1]=="S" and r1[e-2]=="S" and r1[e-3]=="S":
+                    go = True
+            else:
+                if r1[e] == "S" and r1[e+1]=="S" and r1[e+2]=="S" and r1[e+3]=="S":
+                    go = True
+                    print("Game over, computer wins")
+                    break
+###########################################################################################################
+    for i in r3:
+        if i ==X:
+            e = r3.index(i)
+            if e == 3:
+                if r3[e] == X and r4[e-1]==X and r5[e-2]==X and r6[e-3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                if r3[e] == X and r4[e+1]==X and r5[e+2]==X and r6[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                else:
+                    pass
+            if e >= 4:
+                if r3[e] == X and r4[e-1]==X and r5[e-2]==X and r6[e-3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+            elif e < 3:
+                if r3[e] == X and r4[e+1]==X and r5[e+2]==X and r6[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+    for i in r2:
+        if i == X:
+            e = r2.index(i)
+            if e == 3:
+                if r2[e] == X and r3[e-1]==X and r4[e-2]==X and r5[e-3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                if r2[e] == X and r3[e+1]==X and r4[e+2]==X and r5[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                else:
+                    pass
+                
+    for i in r1:
+        if i ==X:
+            e = r1.index(i)
+            if e == 3:
+                if r1[e] == X and r2[e-1]==X and r3[e-2]==X and r4[e-3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                if r1[e] == X and r2[e+1]==X and r3[e+2]==X and r4[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+                else:
+                    pass
+            if e >= 4:
+                if r1[e] == X and r2[e-1]==X and r3[e-2]==X and r4[e-3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break
+            elif e < 3:
+                if r1[e] == X and r2[e+1]==X and r3[e+2]==X and r4[e+3]==X:
+                    go = True
+                    print("Game over, player wins")
+                    break       

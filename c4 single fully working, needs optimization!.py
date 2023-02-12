@@ -1,5 +1,20 @@
 from random import randrange
-p1=  str(input("enter player 1 name: "))
+p1=  str(input("enter player 1 email: "))
+# em = 0
+# emc=0
+# while em ==0:
+#     p1=  str(input("enter player 1 email: "))
+#     for i in p1:
+#         if i == "@":
+#             emc+=1
+#         else:
+#             em += 0
+#             if i == ".":
+#                 emc+=1
+#             else:
+#                 em +=0
+#         if emc == 2:
+#             em = 1  
 m = 0
 cm = 0
 pw = 0
@@ -29,9 +44,9 @@ multi = int(input("enter 0 for singleplayer or 1 for multiplayer: "))
 if multi == 0:
     cname = "Computer"
 else:
-    cname = str(input("enter player 2 name: "))
+    cname = str(input("enter player 2 email: "))
 
-
+og1 = cname," , Enter which column you wish to drop counter:" 
 
 X = "X"
 S="S"
@@ -53,38 +68,50 @@ while go == False:
             if t == 0:
                 print("Board full, no winner")
                 go = True
-    x = int(input("Player 1, Enter which column you wish to drop counter:"))
+    og = p1,", Enter which column you wish to drop counter:"
+    rego = "That column is full, please choose another:" 
+    v = 0
+    v2 = 0
+    while v == 0:            
+        if v2 == 0:
+            x = int(input(og))
+            if r1[x] == [0]:
+                v= 1
+            else:
+                v2=1
+                v=0
+        else:
+            x = int(input(rego))
+            if r1[x] == [0]:
+                v=1
+    
     m+=1
-    def pos(j):
+    def pos(j,l):
         if r6[j] == [0]:
-            del r6[x]
-            r6.insert(x,X)
-            
+            del r6[j]
+            r6.insert(j,l)
+                        
         elif r5[j] == [0]:
-            del r5[x]
-            r5.insert(x,X)
+            del r5[j]
+            r5.insert(j,l)
             
         elif r4[j] == [0]:
-            del r4[x]
-            r4.insert(x,X)
+            del r4[j]
+            r4.insert(j,l)
             
         elif r3[j] == [0]:
-            del r3[x]
-            r3.insert(x,X)
+            del r3[j]
+            r3.insert(j,l)
             
         elif r2[j] == [0]:
-            del r2[x]
-            r2.insert(x,X)
+            del r2[j]
+            r2.insert(j,l)
             
         elif r1[j] == [0]:
-            del r1[x]
-            r1.insert(x,X)
-        board()
-
-        
-   
-    pos(x)
-  
+            del r1[j]
+            r1.insert(j,l)
+    pos(x,X)
+    board()
 
 #######################################################################
     def wins(b1, o1):
@@ -172,14 +199,14 @@ while go == False:
                        
                         go = True
                         break
-                    break
+                    
                     if r3[e] == b1 and r4[e+1]==b1 and r5[e+2]==b1 and r6[e+3]==b1:
                         
                         print("Game over, ",o1," wins")
                         
                         go = True
                         break
-                    break
+                    
                    
                 if e >= 4:
                     if r3[e] == b1 and r4[e-1]==b1 and r5[e-2]==b1 and r6[e-3]==b1:
@@ -188,7 +215,7 @@ while go == False:
                         
                         go = True
                         break
-                    break
+                    
                 elif e < 3:
                     if r3[e] == b1 and r4[e+1]==b1 and r5[e+2]==b1 and r6[e+3]==b1:
                         
@@ -196,7 +223,7 @@ while go == False:
                                              
                         go = True
                         break
-                    break
+                   
         for i in r2:
             if i == b1:
                 e = r2.index(i)
@@ -206,14 +233,14 @@ while go == False:
                         
                         go = True
                         break
-                    break
+                    
                     if r2[e] == b1 and r3[e+1]==b1 and r4[e+2]==b1 and r5[e+3]==b1:
                         
                         print("Game over, ",o1," wins")
                       
                         go = True
                         break
-                    break
+                  
 
         for i in r1:
             if i ==b1:
@@ -224,21 +251,21 @@ while go == False:
                         
                         go = True
                         break
-                    break
+                   
                     if r1[e] == b1 and r2[e+1]==b1 and r3[e+2]==b1 and r4[e+3]==b1:
                         
                         print("Game over, ",o1," wins")
                         
                         go = True
                         break
-                    break
+                   
                 if e >= 4:
                     if r1[e] == b1 and r2[e-1]==b1 and r3[e-2]==b1 and r4[e-3]==b1:                       
                         print("Game over, ",o1," wins")
                         
                         go = True
                         break
-                    break
+                   
                 elif e < 3:
                     if r1[e] == b1 and r2[e+1]==b1 and r3[e+2]==b1 and r4[e+3]==b1:
                         
@@ -246,46 +273,38 @@ while go == False:
                         
                         go = True
                         break
-                    break
+                 
     wins(X,p1)
 ###############################################################
     if go == False:
         go = False
-        def pos(j):
-            if r6[j] == [0]:
-                del r6[cx]
-                r6.insert(cx,S)
-                
-            elif r5[j] == [0]:
-                del r5[cx]
-                r5.insert(cx,S)
-                
-            elif r4[j] == [0]:
-                del r4[cx]
-                r4.insert(cx,S)
-                
-            elif r3[j] == [0]:
-                del r3[cx]
-                r3.insert(cx,S)
-                
-            elif r2[j] == [0]:
-                del r2[cx]
-                r2.insert(cx,S)
-                
-            elif r1[j] == [0]:
-                del r1[cx]
-                r1.insert(cx,S)
-                
-            else:
-                
-                go = False
+
         if multi == 0:
-            cx = randrange(0,7)
-            cm +=1
+            vc = 0
+            while vc == 0:            
+                cx = randrange(0,7)
+                if r1[cx] == [0]:
+                    vc= 1
+                else:
+                    vc=0
+                cm +=1
         else:
-            cx = int(input("Player 2, enter which column you wish to drop counter:"))
+            v3 = 0
+            v4 = 0
+            while v3 == 0:            
+                if v4 == 0:
+                    cx = int(input(og1))
+                    if r1[cx] == [0]:
+                        v3= 1
+                    else:
+                        v4=1
+                        v3=0
+                else:
+                    cx = int(input(rego))
+                    if r1[cx] == [0]:
+                        v3=1 
             cm+=1
-        pos(cx)
+        pos(cx,S)
         board()
     wins(S,cname)
 ######################################################################## (vert checks)

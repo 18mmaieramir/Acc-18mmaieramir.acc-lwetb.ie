@@ -1,6 +1,21 @@
 from random import randrange
-f=open("l.txt","w")
+print("Connect 4 simulation")
 p1=  str(input("enter player 1 email: "))
+# em = 0
+# emc=0
+# while em ==0:
+#     p1=  str(input("enter player 1 email: "))
+#     for i in p1:
+#         if i == "@":
+#             emc+=1
+#         else:
+#             em += 0
+#             if i == ".":
+#                 emc+=1
+#             else:
+#                 em +=0
+#         if emc == 2:
+#             em = 1            
 m = 0
 cm = 0
 pw = 0
@@ -40,6 +55,8 @@ for i in range(100):
     S="S"
 
     while g<1:
+        y1=2      # strategy restrictions
+        y2=5      #
         co =0
         for i in r1:
             if i == [0]:
@@ -49,41 +66,49 @@ for i in range(100):
             print("no winner")
             dr+=1
             g+=1
-            
             break
-
-
-        def pos(j):
+        
+        if r1[y1] != [0] and r1[y1+1] != [0] and r1[y1+2] != [0]:
+            y1 = 0
+            y2 = 7
+            
+        def pos(j,l):
             if r6[j] == [0]:
-                del r6[x]
-                r6.insert(x,X)
-                
+                del r6[j]
+                r6.insert(j,l)
+                            
             elif r5[j] == [0]:
-                del r5[x]
-                r5.insert(x,X)
+                del r5[j]
+                r5.insert(j,l)
                 
             elif r4[j] == [0]:
-                del r4[x]
-                r4.insert(x,X)
+                del r4[j]
+                r4.insert(j,l)
                 
             elif r3[j] == [0]:
-                del r3[x]
-                r3.insert(x,X)
+                del r3[j]
+                r3.insert(j,l)
                 
             elif r2[j] == [0]:
-                del r2[x]
-                r2.insert(x,X)
+                del r2[j]
+                r2.insert(j,l)
                 
             elif r1[j] == [0]:
-                del r1[x]
-                r1.insert(x,X)
-                
-        x = randrange(0,7)
-        pos(x)
+                del r1[j]
+                r1.insert(j,l)
+
+        v = 0
+        while v == 0:            
+            x = randrange(y1,y2)
+            if r1[x] == [0]:
+                v= 1
+            else:
+                v=0
+        pos(x,X)
         m+=1
 
-    #######################################################################
-        def wins(b1,o1,win_counter): #vert
+#######################################################################
+        def wins(b1,o1,win_counter): #vertical win check
             global g
             global pw
             global cw
@@ -93,7 +118,7 @@ for i in range(100):
             
                 if r6[b] == b1 and r5[b] == b1 and r4[b] == b1 and r3[b] == b1:
                     print(o1,"  Wins vert")
-                    f.write(o1)
+                    (o1)
                     if win_counter == "p":
                         pw+=1
                         g+=1
@@ -109,7 +134,7 @@ for i in range(100):
 
                 if r4[b] == b1 and r3[b] == b1 and r2[b] == b1 and r1[b] == b1:
                     print(o1,"  Wins vert")
-                    f.write(o1)
+                    (o1)
                     if win_counter == "p":
                         pw+=1
                         g= True
@@ -123,7 +148,7 @@ for i in range(100):
 
                 if r5[b] == b1 and r4[b] == b1 and r3[b] == b1 and r2[b] == b1:
                      print(o1,"  Winsvert")
-                     f.write(o1)
+                     (o1)
                      if win_counter == "p":
                          pw+=1
                          g+=1
@@ -136,7 +161,7 @@ for i in range(100):
                      break
         if not g:
             wins(X,p1,"p")
- ################################################################################# horz       
+ ################################################################################# horizontal win check       
         def horz(k,q,r,v):
             global pw
             global g
@@ -184,7 +209,7 @@ for i in range(100):
         if not g:
             horz(r1,X,"p",p1)
 
-    ################################################################################################## dia
+    ################################################################################################## diagonal win check
         def diawins(b,r,t1):
             global g
             global pw
@@ -329,38 +354,18 @@ for i in range(100):
         
     ############################################################### computer turn
 
-        def pos1(j):
-                if r6[j] == [0]:
-                    del r6[cx]
-                    r6.insert(cx,S)
-                    
-                elif r5[j] == [0]:
-                    del r5[cx]
-                    r5.insert(cx,S)
-                    
-                elif r4[j] == [0]:
-                    del r4[cx]
-                    r4.insert(cx,S)
-                    
-                elif r3[j] == [0]:
-                    del r3[cx]
-                    r3.insert(cx,S)
-                    
-                elif r2[j] == [0]:
-                    del r2[cx]
-                    r2.insert(cx,S)
-                    
-                elif r1[j] == [0]:
-                    del r1[cx]
-                    r1.insert(cx,S)
-                    
-
-        cx = randrange(0,7)
-        pos1(cx)
+        vc = 0
+        while vc == 0:            
+            cx = randrange(0,7)
+            if r1[cx] == [0]:
+                vc= 1
+            else:
+                vc=0
+        pos(cx,S)
         cm +=1 
         if not g:   
             wins(S,cname,"c")
-    ########################################################################### horz        
+########################################################################### horz        
         if not g:   
             horz(r6,S,cw,cname)
         if not g:   
